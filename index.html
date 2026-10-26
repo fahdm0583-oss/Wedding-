@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="دعوة زفاف محمد وهبة">
+<meta property="og:description" content="يسرّنا دعوتكم لحضور حفل زفافنا يوم 25 ديسمبر 2026. اضغط لفتح الدعوة.">
+<meta property="og:locale" content="ar_EG">
+<meta name="description" content="دعوة زفاف محمد وهبة، 25 ديسمبر 2026، قاعة قصر مطابع الأميرية">
+<meta name="theme-color" content="#2a0508">
+<title>دعوة محمد وهبة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+:root{
+  /* Layout: full-bleed burgundy cloth. A lace envelope sits centred, opens, lets a card rise, then hands over to one ivory card with the event details stacked beneath. */
+  --wine:#64151B; --wine-deep:#30090D; --ivory:#F8F3E8; --gold:#C6A66A; --ink:#302522;
+  --gold-lt:#E6D2A3; --paper:#F6EFDF;
+  --ar:'Amiri','Noto Naskh Arabic','Traditional Arabic',serif;
+  --en:'Cormorant Garamond','Playfair Display',Georgia,serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --ease-soft:cubic-bezier(0.45,0.05,0.25,1);
+  --k:1;
+  --sw:min(112vw,620px,calc(100vh * .62));
+  --nm:1;
+  color-scheme:dark;
+}
+@supports (height:1dvh){:root{--sw:min(112vw,620px,calc(100dvh * .62))}}
+@media (prefers-reduced-motion:reduce){:root{--k:.02}}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html.locked,html.locked body{overflow:hidden}
+body{
+  margin:0;background:var(--wine-deep);color:var(--ivory);
+  font-family:var(--ar);font-size:18px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  overflow-x:hidden;-webkit-tap-highlight-color:transparent;
+}
+html[lang="en"] body{font-family:var(--en);font-size:20px;--nm:1.18}
+p,h1,h2{margin:0}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- background cloth ---------- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg>div{position:absolute;inset:0}
+.cloth{
+  background:linear-gradient(rgba(26,2,5,.42),rgba(26,2,5,.58)),url(img/fabric.jpg) center/cover no-repeat,#2a0508;
+}
+.cloth::after{content:"";position:absolute;inset:0;background-image:var(--noise);opacity:.6;mix-blend-mode:multiply}
+.lace-bg{display:none;
+  background-image:var(--lace);background-size:230px 230px;opacity:.07;
+  -webkit-mask-image:radial-gradient(ellipse 72% 62% at 50% 46%,transparent 28%,#000 100%);
+  mask-image:radial-gradient(ellipse 72% 62% at 50% 46%,transparent 28%,#000 100%);
+}
+.vig{background:radial-gradient(ellipse at 50% 45%,transparent 42%,rgba(20,3,6,.68) 100%)}
+
+/* ---------- top controls ---------- */
+.bar{
+  position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;gap:10px;
+  padding:calc(env(safe-area-inset-top,0px) + 10px) max(16px,env(safe-area-inset-right,0px)) 22px max(16px,env(safe-area-inset-left,0px));
+  background:linear-gradient(rgba(36,6,10,.85),rgba(36,6,10,0));pointer-events:none;
+}
+.bar>*{pointer-events:auto}
+.chip{
+  min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(198,166,106,.55);
+  background:rgba(48,9,13,.6);color:var(--gold-lt);font-size:16px;line-height:1;cursor:pointer;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:inline-flex;align-items:center;gap:8px;
+}
+.chip[aria-pressed="true"]{background:rgba(198,166,106,.2);border-color:var(--gold)}
+.chip svg{width:18px;height:18px;flex:none}
+
+/* ---------- photographic envelope scene ---------- */
+.scene{position:fixed;inset:0;z-index:5;overflow:hidden;transition:opacity calc(1.3s*var(--k)) ease}
+.scene.fadein{animation:sceneIn calc(1.2s*var(--k)) ease backwards}
+.scene.noanim,.scene.noanim *{transition:none!important;animation:none!important}
+.scene.s-leave{opacity:0;pointer-events:none}
+@keyframes sceneIn{from{opacity:0}to{opacity:1}}
+.stage{position:absolute;left:50%;top:50%;width:var(--sw);height:calc(var(--sw)*1.5);transform:translate(-50%,-50%)}
+.zoomer{position:absolute;inset:0;transform-origin:var(--ox,50%) var(--oy,35%);transition:transform calc(2.5s*var(--k)) var(--ease-soft)}
+.ph{
+  position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%),linear-gradient(to right,transparent 0,#000 11%,#000 89%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%),linear-gradient(to right,transparent 0,#000 11%,#000 89%,transparent 100%);
+  mask-composite:intersect;
+}
+.ph.closed{transform-origin:50% 70%;transition:opacity calc(2s*var(--k)) cubic-bezier(.45,0,.3,1),transform calc(2.6s*var(--k)) var(--ease-soft)}
+.scene.s-open .ph.closed{opacity:0;transform:scale(1.012)}
+
+/* the invitation card laid over the photographed card (same polygon as the visible paper) */
+.mini{
+  position:absolute;left:25%;top:17.4%;width:52.8%;height:46.2%;color:var(--ink);text-align:center;
+  clip-path:polygon(2.3% 0,99.05% 1.1%,99.05% 71.9%,58.5% 99.7%,34.5% 99.7%,0 68.8%);
+  background:
+    linear-gradient(172deg,rgba(255,255,255,.4),rgba(255,255,255,0) 45%,rgba(140,105,60,.12)),
+    #EFE6D3;
+  display:flex;flex-direction:column;align-items:center;
+  padding:calc(var(--sw)*.045) calc(var(--sw)*.03) 0;gap:calc(var(--sw)*.012);
+}
+.mini::before{content:"";position:absolute;inset:3.2% 3.4% 0 3.4%;border:1px solid rgba(166,132,70,.75);border-bottom:0;pointer-events:none}
+.mini .orn{width:34%;height:auto}
+.mini .bism{font-size:calc(var(--sw)*.031);color:var(--wine);line-height:1.5}
+html[lang="en"] .mini .bism{font-size:calc(var(--sw)*.0205);font-style:italic}
+.mini .names{font-size:calc(var(--sw)*.072*var(--nm));line-height:1.15;font-weight:700;color:var(--wine);gap:.18em}
+html[lang="en"] .mini .names{font-weight:500;font-style:italic}
+.mini .dts{font-size:calc(var(--sw)*.029);color:#5a4a42;line-height:1.4}
+html[lang="en"] .mini .dts{font-size:calc(var(--sw)*.026)}
+.mini .t{opacity:0;transform:translateY(calc(var(--sw)*.02))}
+.scene.s-text .mini .t{
+  opacity:1;transform:none;
+  transition:opacity calc(1.5s*var(--k)) var(--ease) calc(var(--d,0)*1s*var(--k)),transform calc(1.5s*var(--k)) var(--ease) calc(var(--d,0)*1s*var(--k));
+}
+
+/* seal: an invisible touch target laid exactly over the photographed wax seal */
+.seal{
+  position:absolute;left:50.8%;top:67.1%;width:15%;aspect-ratio:1;transform:translate(-50%,-50%);
+  border:0;padding:0;border-radius:50%;background:transparent;cursor:pointer;overflow:hidden;touch-action:manipulation;
+  transition:opacity calc(.9s*var(--k)) ease,background-color .2s ease,transform .2s ease;
+}
+.seal::after{
+  content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;mix-blend-mode:soft-light;
+  background:linear-gradient(115deg,transparent 38%,rgba(255,236,226,.75) 50%,transparent 62%);
+  transform:translateX(-130%);animation:sheen 7s ease-in-out infinite 1.5s;
+}
+@keyframes sheen{0%,60%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+.seal.pressed{transform:translate(-50%,-50%) scale(.94);background:radial-gradient(circle,rgba(20,0,2,.34),rgba(20,0,2,0) 72%)}
+.scene.s-seal .seal{opacity:0;pointer-events:none}
+.hint{
+  position:absolute;left:0;right:0;top:90.5%;text-align:center;color:var(--gold-lt);font-size:18px;margin:0;
+  animation:breathe 4.5s ease-in-out infinite;transition:opacity calc(.6s*var(--k)) ease;
+}
+.scene.s-seal .hint{opacity:0;animation:none}
+@keyframes breathe{0%,100%{opacity:.6}50%{opacity:1}}
+
+/* ---------- invitation page ---------- */
+#invite{
+  position:relative;z-index:2;max-width:620px;margin:0 auto;padding-block:84px 70px;outline:none;
+  opacity:0;transition:opacity calc(1s*var(--k)) ease;
+}
+#invite.show{opacity:1}
+#invite.out{opacity:0;transition-duration:calc(.8s*var(--k))}
+.rv{opacity:0;transform:translateY(16px)}
+#invite.show .rv{
+  opacity:1;transform:none;
+  transition:opacity calc(1.5s*var(--k)) var(--ease) calc(var(--d,0)*1s*var(--k)),transform calc(1.5s*var(--k)) var(--ease) calc(var(--d,0)*1s*var(--k));
+}
+
+.paper{
+  position:relative;width:100%;text-align:center;color:var(--ink);
+  background:linear-gradient(170deg,#FBF6EA,#F3EBD9 65%,#EAE0CA);
+  padding:clamp(64px,16vw,96px) clamp(26px,8vw,56px) clamp(60px,15vw,88px);
+  border-radius:3px;box-shadow:0 34px 60px -22px rgba(0,0,0,.75),0 1px 0 rgba(255,255,255,.55) inset;
+  display:flex;flex-direction:column;align-items:center;gap:clamp(12px,3vw,18px);
+}
+.paper::before,.paper::after{
+  content:"";position:absolute;left:0;right:0;height:clamp(54px,14vw,84px);pointer-events:none;
+  background-image:var(--lace);background-size:clamp(100px,26vw,150px);background-repeat:repeat-x;opacity:.85;
+}
+.paper::before{top:0;-webkit-mask-image:linear-gradient(#000 30%,transparent);mask-image:linear-gradient(#000 30%,transparent)}
+.paper::after{bottom:0;-webkit-mask-image:linear-gradient(transparent,#000 70%);mask-image:linear-gradient(transparent,#000 70%)}
+.frame{position:absolute;inset:12px;border:1px solid rgba(198,166,106,.7);pointer-events:none}
+.frame::after{content:"";position:absolute;inset:4px;border:1px solid rgba(198,166,106,.32)}
+.orn{width:min(260px,70%);height:auto;display:block}
+.bism{font-size:clamp(20px,5.4vw,26px);color:var(--wine);line-height:1.8}
+html[lang="en"] .bism{font-size:clamp(17px,4.6vw,21px);font-style:italic}
+.lead{font-size:clamp(19px,5vw,23px)}
+.names{
+  font-size:calc(clamp(44px,13vw,70px)*var(--nm));font-weight:700;line-height:1.15;color:var(--wine);
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.2em;
+}
+html[lang="en"] .names{font-weight:500;font-style:italic}
+.amp{color:var(--gold);font-weight:400}
+.sub{font-size:clamp(17px,4.4vw,20px);color:#5a4a42;max-width:30ch}
+.rule{width:56px;height:1px;background:var(--gold);opacity:.8}
+.wd{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#7a6a58}
+html[lang="ar"] .wd{font-size:19px;letter-spacing:0;text-transform:none}
+.dt{font-size:clamp(26px,7.4vw,36px);font-weight:700;color:var(--ink);line-height:1.3}
+html[lang="en"] .dt{font-weight:500}
+.tm{font-size:clamp(19px,5vw,23px);color:#5a4a42}
+.lbl{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#7a6a58}
+html[lang="ar"] .lbl{font-size:17px;letter-spacing:0;text-transform:none}
+.vn{font-size:clamp(22px,6vw,28px);font-weight:700;color:var(--wine)}
+html[lang="en"] .vn{font-weight:600}
+
+.panel{
+  margin-top:22px;padding:24px 18px;border:1px solid rgba(198,166,106,.42);border-radius:4px;
+  background:rgba(40,7,11,.5);text-align:center;
+}
+.panel h2{font-size:clamp(20px,5vw,24px);color:var(--gold-lt);font-weight:700;margin-bottom:14px}
+html[lang="en"] .panel h2{font-weight:600}
+.cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.cd b{
+  display:block;font-family:var(--en);font-weight:600;font-size:clamp(32px,10vw,48px);line-height:1.1;
+  color:var(--gold-lt);font-variant-numeric:lining-nums tabular-nums;
+}
+.cd span{font-size:15px;color:rgba(248,243,232,.78)}
+.cd-msg{font-size:clamp(19px,5vw,23px);color:var(--ivory)}
+.panel .vn2{font-size:clamp(21px,5.6vw,26px);font-weight:700;margin-bottom:16px}
+html[lang="en"] .panel .vn2{font-weight:600}
+
+.actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:22px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;width:min(100%,380px);min-height:50px;padding:0 24px;
+  border-radius:999px;border:1px solid var(--gold);font-size:18px;line-height:1.2;cursor:pointer;text-decoration:none;
+  transition:background .25s ease,color .25s ease,transform .2s ease;
+}
+.btn-gold{background:var(--gold);color:var(--wine-deep)}
+.btn-line{background:transparent;color:var(--ivory)}
+.btn:active{transform:scale(.98)}
+@media (hover:hover){.btn-gold:hover{background:var(--gold-lt)}.btn-line:hover{background:rgba(198,166,106,.18)}}
+.rsvp-box{margin-top:18px;padding:18px;border-radius:4px;background:rgba(248,243,232,.08);border:1px solid rgba(198,166,106,.4);text-align:center}
+.rsvp-box p:first-child{font-size:clamp(19px,5vw,22px);color:var(--gold-lt)}
+.wa{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:14px}
+.wa .btn{font-size:17px}
+.rsvp-box .note{font-size:15px;color:rgba(248,243,232,.72);margin-top:6px}
+#copybox{
+  display:block;width:100%;margin-top:14px;min-height:120px;padding:12px;border-radius:4px;resize:none;
+  background:var(--ivory);color:var(--ink);border:1px solid var(--gold);font:inherit;font-size:16px;
+}
+.closing{margin-top:34px;text-align:center;font-size:clamp(19px,5vw,22px);color:var(--gold-lt)}
+.replay{
+  display:block;margin:20px auto 0;background:none;border:0;color:rgba(248,243,232,.78);font-size:17px;cursor:pointer;
+  min-height:44px;padding:0 14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(198,166,106,.6);
+}
+.toast{
+  position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);z-index:40;transform:translate(-50%,16px);
+  max-width:min(92vw,420px);padding:12px 20px;border-radius:999px;background:var(--ivory);color:var(--ink);
+  font-size:17px;text-align:center;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s var(--ease);
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  .hint,.seal::after{animation:none}
+  .rv{transform:none}
+}
+</style>
+
+<noscript><style>.rv{opacity:1!important;transform:none!important}#invite{display:block!important;opacity:1!important}.scene,.bar{display:none}</style></noscript>
+
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <div class="cloth"></div>
+  <div class="lace-bg"></div>
+  <div class="vig"></div>
+</div>
+
+<div class="bar">
+  <button class="chip" id="langBtn" type="button" aria-label="Switch language / تغيير اللغة"><span id="langTxt">English</span></button>
+  <button class="chip" id="soundBtn" type="button" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path id="sndWave" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" /></svg>
+    <span id="soundTxt"></span>
+  </button>
+</div>
+
+<div class="scene" id="scene" role="region" aria-label="Wedding invitation">
+  <h1 class="sr" data-i="srIntro"></h1>
+  <div class="stage" id="stage">
+    <div class="zoomer" id="zoomer">
+      <img class="ph open" src="img/open.jpg" alt="" width="1024" height="1536" decoding="async" draggable="false">
+      <div class="mini" id="mini" aria-hidden="true">
+        <svg class="orn t" style="--d:0" viewBox="0 0 240 28"><g fill="none" stroke="#B8975A" stroke-width="1.2"><path d="M10 14H96M144 14H230"/><path d="M120 3L131 14L120 25L109 14Z"/><circle cx="120" cy="14" r="3" fill="#B8975A"/><path d="M100 14c4-6 8-6 10 0c-2 6-6 6-10 0M140 14c-4-6-8-6-10 0c2 6 6 6 10 0"/></g></svg>
+        <p class="bism t" style="--d:.2" data-i="bism"></p>
+        <p class="names t" style="--d:.5"><span data-i="groom"></span><span class="amp">&amp;</span><span data-i="bride"></span></p>
+        <p class="dts t" style="--d:.8" data-i="date"></p>
+      </div>
+      <img class="ph closed" src="img/closed.jpg" alt="" width="1024" height="1535" decoding="async" draggable="false">
+      <button class="seal" id="seal" type="button" data-ia="hint"></button>
+    </div>
+    <p class="hint" id="hint" data-i="hint"></p>
+  </div>
+</div>
+
+<main id="invite" tabindex="-1" hidden>
+  <article class="paper rv" style="--d:.1" aria-labelledby="names">
+    <div class="frame" aria-hidden="true"></div>
+    <svg class="orn rv" style="--d:.3" viewBox="0 0 240 28" aria-hidden="true"><g fill="none" stroke="#C6A66A" stroke-width="1"><path d="M10 14H96M144 14H230"/><path d="M120 3L131 14L120 25L109 14Z"/><circle cx="120" cy="14" r="3" fill="#C6A66A"/><path d="M100 14c4-6 8-6 10 0c-2 6-6 6-10 0M140 14c-4-6-8-6-10 0c2 6 6 6 10 0"/></g></svg>
+    <p class="bism rv" style="--d:.5" data-i="bism"></p>
+    <p class="lead rv" style="--d:.8" data-i="lead"></p>
+    <h2 class="names rv" id="names" style="--d:1.1"><span data-i="groom"></span><span class="amp">&amp;</span><span data-i="bride"></span></h2>
+    <p class="sub rv" style="--d:1.4" data-i="sub"></p>
+    <div class="rule rv" style="--d:1.5" aria-hidden="true"></div>
+    <div class="when rv" style="--d:1.7">
+      <p class="wd" data-i="weekday"></p>
+      <p class="dt" data-i="date"></p>
+      <p class="tm" data-i="time"></p>
+    </div>
+    <div class="rule rv" style="--d:1.9" aria-hidden="true"></div>
+    <div class="where rv" style="--d:2.1">
+      <p class="lbl" data-i="venueLbl"></p>
+      <p class="vn" data-i="venue"></p>
+    </div>
+  </article>
+
+  <section class="panel rv" style="--d:2.4" aria-labelledby="cdTitle">
+    <h2 id="cdTitle" data-i="cdTitle"></h2>
+    <div class="cd" id="cd" role="timer">
+      <div><b id="cd-d">00</b><span data-i="uDay"></span></div>
+      <div><b id="cd-h">00</b><span data-i="uHour"></span></div>
+      <div><b id="cd-m">00</b><span data-i="uMin"></span></div>
+      <div><b id="cd-s">00</b><span data-i="uSec"></span></div>
+    </div>
+    <p class="cd-msg" id="cdMsg" hidden></p>
+  </section>
+
+  <section class="panel rv" style="--d:2.6" aria-labelledby="where2">
+    <h2 id="where2" data-i="venueLbl"></h2>
+    <p class="vn2" data-i="venue"></p>
+    <a class="btn btn-line" id="mapBtn" href="https://maps.app.goo.gl/LeJ4woEjCAkXk3qJ7" target="_blank" rel="noopener noreferrer"><span data-i="mapBtn"></span></a>
+  </section>
+
+  <div class="actions rv" style="--d:2.8">
+    <button class="btn btn-gold" id="rsvpBtn" type="button" aria-expanded="false" aria-controls="rsvpBox"><span data-i="rsvp"></span></button>
+    <button class="btn btn-line" id="copyBtn" type="button"><span data-i="copyBtn"></span></button>
+  </div>
+  <div class="rsvp-box" id="rsvpBox" role="status" hidden>
+    <p data-i="rsvpMsg"></p>
+    <div class="wa">
+      <a class="btn btn-gold" id="waGroom" target="_blank" rel="noopener noreferrer" href="https://wa.me/201101822839"><span data-i="waGroom"></span></a>
+      <a class="btn btn-gold" id="waBride" target="_blank" rel="noopener noreferrer" href="https://wa.me/201019711353"><span data-i="waBride"></span></a>
+    </div>
+    <p class="note" data-i="rsvpNote"></p>
+  </div>
+  <textarea id="copybox" readonly hidden aria-label="Invitation details"></textarea>
+
+  <p class="closing rv" style="--d:3" data-i="closing"></p>
+  <button class="replay rv" style="--d:3.1" id="replayBtn" type="button" data-i="replay"></button>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- constants ---------- */
+var TARGET = new Date('2026-12-25T18:00:00+02:00').getTime(); // 6:00 PM Egypt time (UTC+2 in December)
+var MAP_URL = 'https://maps.app.goo.gl/LeJ4woEjCAkXk3qJ7';
+var REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var K = REDUCED ? 0.02 : 1;
+var root = document.documentElement;
+function $(s){ return document.querySelector(s); }
+
+/* ---------- generated textures (lace, linen noise, wax seal) ---------- */
+function enc(svg){ return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")'; }
+function rng(seed){ var s = seed; return function(){ s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
+
+function laceSVG(){
+  var petal = 'M0 -4C-8 -14 -7 -27 0 -33C7 -27 8 -14 0 -4Z';
+  var petal2 = 'M0 -4C-3 -9 -3 -15 0 -18C3 -15 3 -9 0 -4Z';
+  var m = '', i;
+  for(i = 0; i < 8; i++) m += '<path d="' + petal + '" transform="rotate(' + (i * 45) + ')"/>';
+  for(i = 0; i < 8; i++) m += '<path d="' + petal2 + '" transform="rotate(' + (i * 45 + 22.5) + ')"/>';
+  m += '<circle r="3.4" fill="currentColor"/><circle r="9" stroke-dasharray="1 2.4"/><circle r="38" stroke-dasharray="1.1 3.4"/>';
+  var vine = '<path d="M102 102C112 104 116 112 118 118S126 130 138 138"/>' +
+             '<path d="M102 102C104 112 112 116 118 118S130 126 138 138"/>' +
+             '<path d="M116 113q9 -8 17 -3q-7 10 -17 3z" fill="currentColor"/>' +
+             '<path d="M113 116q-8 9 -3 17q10 -7 3 -17z" fill="currentColor"/>' +
+             '<circle cx="119" cy="119" r="1.8" fill="currentColor"/><circle cx="128" cy="128" r="1.4" fill="currentColor"/>';
+  function layer(color, op, tr){
+    var g = '<g color="' + color + '" opacity="' + op + '"' + (tr ? ' transform="' + tr + '"' : '') + '>';
+    [[80,80],[0,0],[160,0],[0,160],[160,160]].forEach(function(p){ g += '<use href="#m" x="' + p[0] + '" y="' + p[1] + '"/>'; });
+    [0,90,180,270].forEach(function(a){ g += '<use href="#v" transform="rotate(' + a + ' 80 80)"/>'; });
+    return g + '</g>';
+  }
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><defs>' +
+    '<pattern id="n" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0L6 6M6 0L0 6" stroke="#b7a37b" stroke-width=".5" opacity=".42"/></pattern>' +
+    '<g id="m" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">' + m + '</g>' +
+    '<g id="v" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">' + vine + '</g>' +
+    '</defs><rect width="160" height="160" fill="url(#n)"/>' +
+    layer('#9a845c', .55, 'translate(1 1.3)') + layer('#fffdf6', 1, '') + '</svg>';
+}
+function noiseSVG(){
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220"><filter id="f" x="0" y="0" width="100%" height="100%">' +
+    '<feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" stitchTiles="stitch"/>' +
+    '<feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .7 0 0 0 -.27"/></filter>' +
+    '<rect width="220" height="220" filter="url(#f)"/></svg>';
+}
+root.style.setProperty('--lace', enc(laceSVG()));
+root.style.setProperty('--noise', enc(noiseSVG()));
+
+
+
+/* ---------- copy ---------- */
+var T = {
+  ar: {
+    title: 'دعوة محمد وهبة',
+    srIntro: 'دعوة زفاف محمد وهبة',
+    hint: 'اضغط على الختم لفتح الدعوة',
+    bism: 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ',
+    lead: 'بفضل الله، ندعوكم لمشاركتنا فرحتنا',
+    groom: 'محمد', bride: 'هبة',
+    sub: 'يسعدنا أن تكونوا جزءًا من أجمل بداية في حكايتنا',
+    weekday: 'الجمعة', date: '25 ديسمبر 2026', time: 'الساعة السادسة مساءً',
+    venueLbl: 'مكان الفرحة', venue: 'قاعة قصر مطابع الأميرية',
+    cdTitle: 'باقي على الفرحة',
+    uDay: 'يوم', uHour: 'ساعة', uMin: 'دقيقة', uSec: 'ثانية',
+    cdNow: 'بدأت الفرحة، نتمنى أن نراكم معنا', cdPast: 'تمت الفرحة بحمد الله، شكرًا لكل من شاركنا',
+    mapBtn: 'افتح الموقع على الخريطة',
+    rsvp: 'هكون معاكم بإذن الله ♡',
+    rsvpMsg: 'جزاكم الله خيرًا، فرحتنا مش هتكمل غير بيكم ♡',
+    rsvpNote: 'اختر العريس أو العروسة، وهيفتح واتساب برسالة جاهزة. التأكيد يوصلنا بعد ما ترسل الرسالة بنفسك.',
+    waGroom: 'أكّد حضورك لمحمد (العريس) على واتساب',
+    waBride: 'أكّد حضورك لهبة (العروسة) على واتساب',
+    waMsg: 'السلام عليكم ورحمة الله، أؤكد حضوري بإذن الله في فرح محمد وهبة يوم 25 ديسمبر 2026. الاسم: ',
+    copyBtn: 'انسخ تفاصيل الدعوة',
+    copied: 'تم نسخ التفاصيل', copyFail: 'تعذر النسخ تلقائيًا، انسخ النص من المربع',
+    soundOn: 'الصوت: مفعّل', soundOff: 'الصوت: مغلق',
+    closing: 'بحضوركم تكتمل فرحتنا',
+    replay: 'إعادة فتح الدعوة',
+    langBtn: 'English',
+    copyHead: 'دعوة زفاف'
+  },
+  en: {
+    title: 'Mohamed & Heba — Wedding Invitation',
+    srIntro: 'Wedding invitation of Mohamed and Heba',
+    hint: 'Tap the seal to open the invitation',
+    bism: 'In the name of Allah, the Most Merciful, the Most Compassionate',
+    lead: 'With joy, we invite you to celebrate with us',
+    groom: 'Mohamed', bride: 'Heba',
+    sub: 'We would be delighted to share this special beginning with you.',
+    weekday: 'Friday', date: 'December 25, 2026', time: '6:00 PM',
+    venueLbl: 'Venue', venue: 'Qasr Matabea Al-Amiriya Hall',
+    cdTitle: 'Counting down to the celebration',
+    uDay: 'Days', uHour: 'Hours', uMin: 'Minutes', uSec: 'Seconds',
+    cdNow: 'The celebration has begun. We hope to see you there.', cdPast: 'Thank you to everyone who celebrated with us.',
+    mapBtn: 'Open location in Maps',
+    rsvp: "I'll be there, God willing ♡",
+    rsvpMsg: 'Thank you. Our joy will not be complete without you ♡',
+    rsvpNote: 'Choose the groom or the bride and WhatsApp opens with a ready message. Your confirmation reaches us once you send it yourself.',
+    waGroom: 'Confirm to Mohamed (groom) on WhatsApp',
+    waBride: 'Confirm to Heba (bride) on WhatsApp',
+    waMsg: "Hello, I'm happy to confirm that I'll be there, God willing, at Mohamed & Heba's wedding on December 25, 2026. Name: ",
+    copyBtn: 'Copy invitation details',
+    copied: 'Details copied', copyFail: 'Could not copy automatically. Copy the text from the box.',
+    soundOn: 'Sound: on', soundOff: 'Sound: off',
+    closing: 'Your presence completes our joy',
+    replay: 'Replay the opening',
+    langBtn: 'العربية',
+    copyHead: 'Wedding invitation'
+  }
+};
+var lang = 'ar';
+try { var saved = localStorage.getItem('inv-lang'); if(saved === 'ar' || saved === 'en') lang = saved; } catch(e){}
+
+function detailsText(){
+  var t = T[lang];
+  var when = lang === 'ar' ? (t.weekday + ' ' + t.date + ' — ' + t.time) : (t.weekday + ', ' + t.date + ' — ' + t.time);
+  return [t.copyHead, t.groom + ' & ' + t.bride, when, t.venue, MAP_URL].join('\n');
+}
+
+var soundOn = false;
+function applyLang(l){
+  lang = l;
+  var t = T[l];
+  root.lang = l; root.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.title = t.title;
+  document.querySelectorAll('[data-i]').forEach(function(el){ el.textContent = t[el.getAttribute('data-i')]; });
+  document.querySelectorAll('[data-ia]').forEach(function(el){ el.setAttribute('aria-label', t[el.getAttribute('data-ia')]); });
+  $('#langTxt').textContent = t.langBtn;
+  $('#soundTxt').textContent = soundOn ? t.soundOn : t.soundOff;
+  renderCountdown();
+  updateWa();
+  try { localStorage.setItem('inv-lang', l); } catch(e){}
+}
+function updateWa(){
+  var m = encodeURIComponent(T[lang].waMsg);
+  $('#waGroom').href = 'https://wa.me/201101822839?text=' + m;
+  $('#waBride').href = 'https://wa.me/201019711353?text=' + m;
+}
+
+/* ---------- countdown ---------- */
+function pad(n){ return (n < 10 ? '0' : '') + n; }
+function renderCountdown(now){
+  now = (typeof now === 'number') ? now : Date.now();
+  var diff = TARGET - now, cd = $('#cd'), msg = $('#cdMsg');
+  if(diff > 0){
+    var s = Math.floor(diff / 1000);
+    $('#cd-d').textContent = pad(Math.floor(s / 86400));
+    $('#cd-h').textContent = pad(Math.floor(s % 86400 / 3600));
+    $('#cd-m').textContent = pad(Math.floor(s % 3600 / 60));
+    $('#cd-s').textContent = pad(s % 60);
+    cd.hidden = false; msg.hidden = true;
+  } else {
+    cd.hidden = true; msg.hidden = false;
+    msg.textContent = now < TARGET + 8 * 3600 * 1000 ? T[lang].cdNow : T[lang].cdPast;
+  }
+}
+setInterval(function(){ renderCountdown(); }, 1000);
+
+/* ---------- sound: background music (loops) + generated chime fallback ---------- */
+var actx = null, bgm = null, musicOk = false, userGesture = false, userToggled = false;
+function ensureAudio(){
+  if(!soundOn || musicOk) return;
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    if(actx.state === 'suspended') actx.resume();
+  } catch(e){ actx = null; }
+}
+function chime(notes){
+  if(!soundOn || !actx || musicOk) return;
+  try {
+    var t0 = actx.currentTime;
+    (notes || [[523.25,0],[659.25,.2],[783.99,.4],[1046.5,.65]]).forEach(function(n){
+      var o = actx.createOscillator(), g = actx.createGain(), t = t0 + n[1];
+      o.type = 'sine'; o.frequency.value = n[0];
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.055, t + 0.05);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 2.2);
+      o.connect(g); g.connect(actx.destination);
+      o.start(t); o.stop(t + 2.3);
+    });
+  } catch(e){}
+}
+function syncSoundUi(){
+  $('#soundBtn').setAttribute('aria-pressed', String(soundOn));
+  $('#soundTxt').textContent = soundOn ? T[lang].soundOn : T[lang].soundOff;
+}
+function tryStart(){
+  if(bgm && musicOk && soundOn && userGesture && bgm.paused){
+    var pr = bgm.play(); if(pr && pr.catch) pr.catch(function(){});
+  }
+}
+(function(){
+  try {
+    bgm = new Audio();
+    bgm.loop = true; bgm.preload = 'auto'; bgm.volume = 0.65;
+    bgm.addEventListener('canplay', function(){
+      if(musicOk) return;
+      musicOk = true;
+      if(!userToggled){ soundOn = true; syncSoundUi(); }
+      var pr = bgm.play(); if(pr && pr.catch) pr.catch(function(){});   // works where the browser allows autoplay
+    });
+    bgm.addEventListener('error', function(){ musicOk = false; });
+    bgm.src = 'audio/music.mp3';
+  } catch(e){ bgm = null; }
+  // browsers only allow sound after a touch, so the music starts on the guest's first tap (usually the seal)
+  ['click','touchend','keydown'].forEach(function(ev){
+    document.addEventListener(ev, function(){ userGesture = true; tryStart(); }, true);
+  });
+  document.addEventListener('visibilitychange', function(){
+    if(!bgm || !musicOk) return;
+    if(document.hidden) bgm.pause(); else tryStart();
+  });
+})();
+$('#soundBtn').addEventListener('click', function(){
+  userToggled = true;
+  soundOn = !soundOn;
+  syncSoundUi();
+  if(soundOn){ ensureAudio(); chime([[784,0]]); tryStart(); }
+  else if(bgm){ bgm.pause(); }
+});
+
+/* ---------- toast ---------- */
+var toastTimer;
+function toast(msg){
+  var el = $('#toast'); el.textContent = msg; el.classList.add('on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ el.classList.remove('on'); }, 2800);
+}
+
+/* ---------- envelope sequence ---------- */
+var scene = $('#scene'), zoomer = $('#zoomer'), mini = $('#mini'), invite = $('#invite'), seal = $('#seal');
+var state = 'closed', timers = [];
+function at(ms, fn){ timers.push(setTimeout(fn, ms * K)); }
+function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+
+// make sure both photographs are decoded before the guest can tap the seal
+var imgsReady = false;
+(function(){
+  var left = 2;
+  ['img/open.jpg', 'img/closed.jpg'].forEach(function(src){
+    var im = new Image();
+    im.onload = im.onerror = function(){ if(--left === 0) imgsReady = true; };
+    im.src = src;
+  });
+})();
+
+function pushIn(){
+  var vw = window.innerWidth, vh = window.innerHeight;
+  var st = $('#stage').getBoundingClientRect(), r = mini.getBoundingClientRect();
+  var cx = r.left + r.width / 2 - st.left;
+  var cy = r.top + r.height * 0.3 - st.top;
+  var sc = Math.max(1, Math.min(2.1, (vw - 56) / r.width, 470 / r.width));
+  var dx = vw / 2 - (st.left + cx), dy = vh * 0.4 - (st.top + cy);
+  zoomer.style.setProperty('--ox', cx + 'px');
+  zoomer.style.setProperty('--oy', cy + 'px');
+  zoomer.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px) scale(' + sc.toFixed(3) + ')';
+}
+
+function openInvite(){
+  if(state !== 'closed') return;
+  state = 'opening';
+  ensureAudio();
+  scene.classList.add('s-seal');                                   // seal lifts away
+  at(300,  function(){ scene.classList.add('s-open'); });          // closed photo dissolves into the open one
+  at(900,  function(){ chime(); });
+  at(2400, function(){ scene.classList.add('s-text'); });          // card text fades in, staggered
+  at(3500, pushIn);                                                // camera moves in on the card
+  at(5400, function(){                                             // hand over to the full invitation
+    state = 'leaving';
+    scene.classList.add('s-leave');
+    root.classList.remove('locked');
+    invite.hidden = false;
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ invite.classList.add('show'); }); });
+  });
+  at(6900, function(){
+    scene.hidden = true; state = 'open';
+    try { invite.focus({ preventScroll: true }); } catch(e){}
+  });
+}
+
+function replay(){
+  if(state !== 'open') return;
+  state = 'resetting';
+  clearTimers();
+  invite.classList.add('out');
+  at(900, function(){
+    invite.hidden = true;
+    invite.classList.remove('show', 'out');
+    $('#rsvpBox').hidden = true; $('#rsvpBtn').setAttribute('aria-expanded', 'false');
+    $('#copybox').hidden = true;
+    root.classList.add('locked');
+    window.scrollTo(0, 0);
+    scene.hidden = false;
+    scene.classList.add('noanim');
+    scene.classList.remove('s-seal', 's-open', 's-text', 's-leave', 'fadein');
+    zoomer.style.transform = '';
+    void scene.offsetWidth;
+    scene.classList.remove('noanim');
+    scene.classList.add('fadein');
+    state = 'closed';
+    try { seal.focus({ preventScroll: true }); } catch(e){}
+  });
+}
+
+seal.addEventListener('click', openInvite);
+seal.addEventListener('pointerdown', function(){ if(state === 'closed') seal.classList.add('pressed'); });
+['pointerup','pointerleave','pointercancel'].forEach(function(ev){ seal.addEventListener(ev, function(){ seal.classList.remove('pressed'); }); });
+$('#replayBtn').addEventListener('click', replay);
+
+/* ---------- RSVP, copy, language ---------- */
+$('#rsvpBtn').addEventListener('click', function(){
+  var box = $('#rsvpBox');
+  box.hidden = false;
+  this.setAttribute('aria-expanded', 'true');
+  box.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'nearest' });
+});
+
+function legacyCopy(text){
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta);
+  ta.select(); ta.setSelectionRange(0, text.length);
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch(e){}
+  ta.remove();
+  return ok;
+}
+function showManual(text){
+  var box = $('#copybox');
+  box.hidden = false; box.value = text;
+  box.focus(); box.select();
+  toast(T[lang].copyFail);
+}
+$('#copyBtn').addEventListener('click', function(){
+  var text = detailsText();
+  var done = function(){ $('#copybox').hidden = true; toast(T[lang].copied); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ legacyCopy(text) ? done() : showManual(text); });
+  } else {
+    legacyCopy(text) ? done() : showManual(text);
+  }
+});
+
+$('#langBtn').addEventListener('click', function(){ applyLang(lang === 'ar' ? 'en' : 'ar'); });
+
+/* ---------- boot ---------- */
+root.classList.add('locked');
+applyLang(lang);
+window.__inv = { renderCountdown: renderCountdown, TARGET: TARGET, bgm: function(){ return bgm; }, music: function(){ return musicOk; } };
+})();
+</script>
+</body>
+</html>
